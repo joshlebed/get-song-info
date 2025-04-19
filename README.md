@@ -21,7 +21,7 @@ pip install -r requirements.txt  # install dependencies
 python get_song_info/get_song_info.py -h
 
 # run script
-python get_song_info/get_song_info.py <path to your XML file>
+python get_song_info/get_song_info.py <path to your MP3 file>
 ```
 
 ## dev quickstart

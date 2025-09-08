@@ -1,12 +1,14 @@
 import logging
 import os
+import subprocess
 import urllib
 import webbrowser
 
 import eyed3
 
 GOOGLE_SEARCH_PREFIX = "https://www.google.com/search?q="
-GOOGLE_IMAGE_SEARCH_PREFIX = "https://www.google.com/search?tbm=isch&q="
+# GOOGLE_IMAGE_SEARCH_PREFIX = "https://www.google.com/search?tbm=isch&q="
+GOOGLE_IMAGE_SEARCH_PREFIX = "https://www.google.com/search?as_st=y&as_epq=&as_oq=&as_eq=&imgar=s&imgcolor=&imgtype=&cr=&as_sitesearch=&as_filetype=&tbs=&udm=2&as_q="
 
 
 def get_search_results_from_filepath(song_file_path: str) -> None:
@@ -17,6 +19,19 @@ def get_search_results_from_filepath(song_file_path: str) -> None:
 def get_image_results_from_filepath(song_file_path: str) -> None:
     query = get_song_query_string_from_filepath(song_file_path=song_file_path)
     open_results_with_prefix(prefix=GOOGLE_IMAGE_SEARCH_PREFIX, query=query)
+
+
+def get_ai_genre_results_from_filepath(song_file_path: str) -> None:
+    query = get_song_query_string_from_filepath(song_file_path=song_file_path)
+    chat_query = (
+        f'Help me as a DJ identify the genre of the track: "{query}" \n\n'
+        f"Do some research online, considering mainstream sources such as "
+        f"Beatport, Discogs, Shazam, SoundCloud, Bandcamp, etc. "
+        f"Also read some forum posts, blogs, and articles if any exist. "
+        f"Return your findings in a concise way."
+    )
+    # copy query to system clipboard
+    subprocess.run("pbcopy", text=True, input=chat_query)
 
 
 def get_song_query_string_from_filepath(song_file_path: str) -> str:

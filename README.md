@@ -14,6 +14,8 @@ filepath -> google some info for you
 
 ```bash
 python3.10 -m venv .venv  # create python virtual environment
+# OR
+uv venv
 source .venv/bin/activate  # activate virtual environment
 pip install -r requirements.txt  # install dependencies
 

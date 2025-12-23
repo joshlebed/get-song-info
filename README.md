@@ -6,37 +6,24 @@ filepath -> google some info for you
 
 ### prereqs
 
-- [python 3.10](https://www.python.org/downloads/release/python-31010/) installed locally
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) installed
 
 ### steps
 
-- in this directory, run:
-
 ```bash
-python3.10 -m venv .venv  # create python virtual environment
-# OR
-uv venv
-source .venv/bin/activate  # activate virtual environment
-pip install -r requirements.txt  # install dependencies
-
 # see options
-python get_song_info/get_song_info.py -h
+uv run get_song_info/get_song_info.py -h
 
 # run script
-python get_song_info/get_song_info.py <path to your MP3 file>
+uv run get_song_info/get_song_info.py <path to your MP3 file>
 ```
 
 ## dev quickstart
 
-one time setup:
-
 ```bash
-python3.10 -m venv .venv
-```
+# sync dependencies
+uv sync
 
-activate python virtual environment and update dependencies (after each pull):
-
-```bash
-source .venv/bin/activate
-pip install -r requirements.txt -r requirements-dev.txt
+# run script
+uv run get_song_info/get_song_info.py <path to your MP3 file>
 ```

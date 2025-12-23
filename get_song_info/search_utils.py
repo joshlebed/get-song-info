@@ -1,7 +1,7 @@
 import logging
 import os
 import subprocess
-import urllib
+import urllib.parse
 import webbrowser
 
 import eyed3

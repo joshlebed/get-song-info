@@ -1,0 +1,18 @@
+[project]
+name = "get-song-info"
+version = "0.1.0"
+description = "Get song info from filepath via Google search"
+requires-python = ">=3.10"
+dependencies = [
+    "eyed3>=0.9.7",
+]
+
+[project.scripts]
+get-song-info = "get_song_info.get_song_info:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["get_song_info"]
